@@ -1,9 +1,10 @@
 #include "Cure.hpp"
+#include "Character.hpp"
 
 //Constructors
 Cure::Cure(void)
 {
-    type = "cure";
+    _type = "cure";
     std::cout << "Cure Default constructor called" << std::endl;
 }
 
@@ -30,11 +31,12 @@ Cure &Cure::operator=(const Cure &other)
 AMateria* Cure::clone() const
 {
     AMateria* ret = new Cure();
+    std::cout << "New Cure Created" << std::endl;
     return ret;
 }
 void Cure::use(ICharacter& target)
 {
-    std::cout << "*heals " << target.getName() << "'s wounds *" << std::endl;
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
 // Getters
 

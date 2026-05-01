@@ -1,29 +1,38 @@
-NAME = AMateria
+NAME = Magic
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
-SRC = main.cpp \
-	  AMateria.cpp \
-	  Ice.cpp \
-	  Cure.cpp
+SRC_DIR = src
+OBJ_DIR = obj
 
-OBJ = $(SRC:.cpp=.o)
+SRC = $(SRC_DIR)/main.cpp \
+      $(SRC_DIR)/AMateria.cpp \
+      $(SRC_DIR)/Ice.cpp \
+      $(SRC_DIR)/Cure.cpp \
+      $(SRC_DIR)/Character.cpp \
+	  $(SRC_DIR)/MateriaSource.cpp \
+	  $(SRC_DIR)/Floor.cpp
+
+OBJS = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY:		all clean fclean re
+.PHONY: all clean fclean re

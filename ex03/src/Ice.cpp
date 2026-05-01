@@ -1,9 +1,10 @@
 #include "Ice.hpp"
+#include "Character.hpp"
 
 //Constructors
 Ice::Ice(void)
 {
-    type = "ice";
+    _type = "ice";
     std::cout << "Ice Default constructor called" << std::endl;
 }
 
@@ -30,12 +31,13 @@ Ice &Ice::operator=(const Ice &other)
 AMateria* Ice::clone() const
 {
     AMateria *ret = new Ice();
+    std::cout << "New Ice Created" << std::endl;
     return ret;
 }
 
 void Ice::use(ICharacter& target)
 {
-    std::cout << "*shoots an ice bolt at " << target.getName() << " *" << std::endl;
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
 // Getters
 

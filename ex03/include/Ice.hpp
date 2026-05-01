@@ -2,6 +2,8 @@
 # define ICE_HPP
 # include "AMateria.hpp"
 
+class Character;
+
 class Ice : public AMateria
 {
     public:

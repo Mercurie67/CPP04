@@ -1,17 +1,18 @@
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 # include <iostream>
-#include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
     protected:
-        std::string type;
+        std::string _type;
     public:
     //Constructors
         AMateria(void);
         AMateria(const AMateria& other);
-        AMateria(const std::string& type);
+        AMateria(const std::string& _type);
 
     //Destructors
         virtual ~AMateria();
