@@ -4,7 +4,7 @@
 Floor::Floor(void)
 {
 	for(int i = 0; i < 100; i++)
-		_item[i] = NULL;
+		item[i] = NULL;
 	count = 0;
 	std::cout << "Floor Default constructor called" << std::endl;
 }
@@ -15,7 +15,7 @@ Floor::Floor(const Floor& other)
 Floor::~Floor()
 {
 	for(int i = 0; i < count; i++)
-		delete _item[i];
+		delete item[i];
 	std::cout << "Floor Default destructor called" << std::endl;
 }
 
@@ -27,5 +27,10 @@ Floor &Floor::operator=(const Floor &other)
 void Floor::add_floor(AMateria* m)
 {
     if (count < 100)
-    	_item[count++] = m;
+    	item[count++] = m;
+	else
+	{
+		delete m;
+		std::cout << "The floor is so crowded the materia explodes\n";
+	}
 }

@@ -8,24 +8,24 @@ Character::Character(void)
 {
     std::cout << "Character Default constructor called" << std::endl;
     for (int i = 0; i < 4; i++)
-        this->_inventory[i] = NULL;
+        this->inventory[i] = NULL;
 }
 
-Character::Character(std::string _name) : _name(_name)
+Character::Character(std::string name) : name(name)
 {
     std::cout << "Character Default constructor called with atributes" << std::endl;
     for (int i = 0; i < 4; i++)
-        this->_inventory[i] = NULL;
+        this->inventory[i] = NULL;
 }
 
-Character::Character(const Character &other) : _name(other._name)
+Character::Character(const Character &other) : name(other.name)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (other._inventory[i])
-            this->_inventory[i] = other._inventory[i]->clone();
+        if (other.inventory[i])
+            this->inventory[i] = other.inventory[i]->clone();
         else
-            this->_inventory[i] = NULL;
+            this->inventory[i] = NULL;
     }
     std::cout << "Character Copy constructor called" << std::endl;
 }
@@ -34,7 +34,7 @@ Character::~Character(void)
 {
     std::cout << "Character Destructor called" << std::endl;
     for (int i = 0; i < 4; i++)
-        delete _inventory[i];
+        delete inventory[i];
 }
 
 // Overload Operators
@@ -43,16 +43,16 @@ Character &Character::operator=(const Character &other)
     std::cout << "Character Assignment operator called" << std::endl;
     if (this != &other)
     {
-        this->_name = other._name;
+        this->name = other.name;
         for (int i = 0; i < 4; i++)
         {
-            delete _inventory[i];
-            _inventory[i] = NULL;
+            delete inventory[i];
+            inventory[i] = NULL;
         }
         for (int i = 0; i < 4; i++)
         {
-            if (other._inventory[i])
-                _inventory[i] = other._inventory[i]->clone();
+            if (other.inventory[i])
+                inventory[i] = other.inventory[i]->clone();
         }
     }
     return *this;
@@ -65,9 +65,9 @@ void Character::equip(AMateria* m)
         return;
     for (int i = 0; i < 4; i++)
     {
-        if (_inventory[i] == NULL)
+        if (inventory[i] == NULL)
         {
-            _inventory[i] = m;
+            inventory[i] = m;
             std::cout << "Materia equiped\n";
             return;
         }
@@ -81,10 +81,10 @@ void Character::unequip(int idx)
         std::cout << "Invalid slot" << std::endl;
         return;
     }
-    if(_inventory[idx] != NULL)
+    if(inventory[idx] != NULL)
     {
-        g_floor.add_floor(_inventory[idx]);
-        _inventory[idx] = NULL;
+        g_floor.add_floor(inventory[idx]);
+        inventory[idx] = NULL;
         std::cout << "Materia unequiped\n";
         return;
     }    
@@ -97,17 +97,17 @@ void Character::use(int idx, ICharacter& target)
         std::cout << "Invalid slot" << std::endl;
         return;
     }
-    else if (_inventory[idx] == NULL)
+    else if (inventory[idx] == NULL)
     {
         std::cout << "You cannot use an Empty Slot\n";
         return;
     }
-    _inventory[idx]->use(target);
+    inventory[idx]->use(target);
 }
 
 // Getters
 std::string const &Character::getName() const
 {
-    return _name;
+    return name;
 }
 // Setters

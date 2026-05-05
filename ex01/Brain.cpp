@@ -12,8 +12,10 @@ Brain::Brain(void)
     std::cout << "Brain Default constructor called" << std::endl;
 }
 
-Brain::Brain(const Brain &other) : ideas(other.ideas)
+Brain::Brain(const Brain &other)
 {
+    for (int i = 0; i < 100; i++)
+        this->ideas[i] = other.ideas[i];
     std::cout << "Brain Copy constructor called" << std::endl;
 }
 // Destructors

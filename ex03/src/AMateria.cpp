@@ -7,12 +7,12 @@ AMateria::AMateria(void)
     std::cout << "AMateria Default constructor called" << std::endl;
 }
 
-AMateria::AMateria(const std::string& _type) : _type(_type)
+AMateria::AMateria(const std::string& type) : type(type)
 {
     std::cout << "AMateria Default constructor called with atributes" << std::endl;
 }
 
-AMateria::AMateria(const AMateria &other) : _type(other._type)
+AMateria::AMateria(const AMateria &other) : type(other.type)
 {
     std::cout << "AMateria Copy constructor called" << std::endl;
 }
@@ -27,7 +27,7 @@ AMateria &AMateria::operator=(const AMateria &other)
 {
     std::cout << "AMateria Assignment operator called" << std::endl;
     if(this != &other)
-        this->_type = other._type;
+        this->type = other.type;
     return (*this);
 }
 
@@ -41,7 +41,7 @@ void AMateria::use(ICharacter& target)
 // Getters
 std::string const &AMateria::getType() const
 {
-    return _type;
+    return type;
 }
 // Setters
 

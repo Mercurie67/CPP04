@@ -8,13 +8,13 @@ class AMateria;
 class Character : public ICharacter
 {
     private:
-        std::string _name;
-        AMateria* _inventory[4];    
+        std::string name;
+        AMateria* inventory[4];    
     public:
     //Constructors
         Character(void);
         Character(const Character& other);
-        Character(std::string _name);
+        Character(std::string name);
 
     //Destructors
         virtual ~Character();

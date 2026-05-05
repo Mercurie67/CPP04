@@ -7,12 +7,12 @@ class ICharacter;
 class AMateria
 {
     protected:
-        std::string _type;
+        std::string type;
     public:
     //Constructors
         AMateria(void);
         AMateria(const AMateria& other);
-        AMateria(const std::string& _type);
+        AMateria(const std::string& type);
 
     //Destructors
         virtual ~AMateria();

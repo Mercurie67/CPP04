@@ -4,7 +4,7 @@
 //Constructors
 Ice::Ice(void)
 {
-    _type = "ice";
+    type = "ice";
     std::cout << "Ice Default constructor called" << std::endl;
 }
 

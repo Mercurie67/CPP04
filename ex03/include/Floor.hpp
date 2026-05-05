@@ -6,7 +6,7 @@
 class Floor
 {
 	private:
-		AMateria* _item[100];
+		AMateria* item[100];
 		int count;
 	public:
     //Constructors

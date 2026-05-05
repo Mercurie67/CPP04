@@ -15,7 +15,7 @@ class	MateriaSource : public IMateriaSource
 		AMateria* createMateria(const std::string &type);
 	
 	private:
-		AMateria*	_table[4];
+		AMateria*	table[4];
 
 };
 

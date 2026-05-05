@@ -6,19 +6,19 @@ int main()
 {
 	{
 		std::cout << "USANDO PUNTEROS" << std::endl;
-		const Animal* meta = new Animal();
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
+		const Animal* animal = new Animal();
+		const Animal* dog = new Dog();
+		const Animal* cat = new Cat();
 		
-		std::cout << j->getType() << " " << std::endl;
-		std::cout << i->getType() << " " << std::endl;
-		std::cout << meta->getType() << " " << std::endl;
-		j->makeSound();
-		i->makeSound();
-		meta->makeSound();
-		delete(meta);
-		delete(j);
-		delete(i);
+		std::cout << animal->getType() << " " << std::endl;
+		std::cout << dog->getType() << " " << std::endl;
+		std::cout << cat->getType() << " " << std::endl;
+		animal->makeSound();
+		dog->makeSound();
+		cat->makeSound();
+		delete(animal);
+		delete(dog);
+		delete(cat);
 	}
 	{
 		std::cout << "\nSIN PUNTEROS" << std::endl;

@@ -4,7 +4,7 @@
 //Constructors
 Cure::Cure(void)
 {
-    _type = "cure";
+    type = "cure";
     std::cout << "Cure Default constructor called" << std::endl;
 }
 
